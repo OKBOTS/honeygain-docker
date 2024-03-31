@@ -1,0 +1,20 @@
+name: Run Honeygain
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
+
+jobs:
+  run_honeygain:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Run Honeygain container
+      run: |
+        docker run honeygain/honeygain -tou-accept -email legendgamingyt835@gmail.com -pass L@bin123890 -device DEVICE_NAME
