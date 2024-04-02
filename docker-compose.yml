@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+    peer2profit:
+        container_name: peer2profit
+        image: enwaiax/peer2profit:latest
+        restart: always
+        environment:
+            - email=legendgamingyt835@gmail.com
+            - use_proxy=false
+        networks:
+            default:
+                ipv4_address: 172.106.0.30
