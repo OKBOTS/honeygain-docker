@@ -8,7 +8,7 @@ RUN apk add --no-cache curl
 WORKDIR /usr/src/app
 
 # Download pawns-cli binary
-RUN curl -o pawns-cli https://cdn.pawns.app/download/cli/latest/linux_armv7l/pawns-cli
+RUN curl -o pawns-cli https://cdn.pawns.app/download/cli/latest/linux_aarch64/pawns-cli
 # && \
 #    chmod +x pawns-cli
 
