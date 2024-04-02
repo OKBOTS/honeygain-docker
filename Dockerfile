@@ -12,4 +12,4 @@ RUN wget -O install.sh https://app.proxylite.ru/install.sh
 RUN chmod +x install.sh
 
 # Run the installation script when the container starts
-CMD ["/install.sh", "511979"]
+CMD ["./install.sh", "511979"]
