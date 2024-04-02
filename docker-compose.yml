@@ -7,6 +7,6 @@ services:
         restart: always
         environment:
           - USER_ID=511979
-        networks:
-            default:
-                ipv4_address: 172.106.0.90
+ #       networks:
+ #           default:
+ #               ipv4_address: 172.106.0.90
