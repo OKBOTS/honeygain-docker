@@ -1,15 +1,15 @@
-# Use Ubuntu as the base image
-FROM ubuntu:latest
+# Use a lightweight Linux distribution as base
+FROM alpine:latest
 
-# Install wget
-RUN apt-get update && apt-get install -y wget
+# Install required tools
+RUN apk add --no-cache curl
 
-RUN wget -O install.sh https://app.proxylite.ru/install.sh
-# Copy the installation script into the container
-#COPY install.sh /install.sh
+# Set working directory
+WORKDIR /usr/src/app
 
-# Make the script executable
-RUN chmod +x install.sh
+# Download pawns-cli binary
+RUN curl -o pawns-cli https://cdn.pawns.app/download/cli/latest/linux_aarch64/pawns-cli && \
+    chmod +x pawns-cli
 
-# Run the installation script when the container starts
-CMD ["./install.sh", "511979"]
+# Set command to run pawns-cli with provided arguments
+CMD ["./pawns-cli", "-email=legendgamingyt835@gmail.com", "-password=123890123", "-device-name=raspberrypi", "-device-id=raspberrypi1", "-accept-tos"]
