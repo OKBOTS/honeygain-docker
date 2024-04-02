@@ -18,11 +18,11 @@ jobs:
 
       - name: Install p2pclient package
         run: |
-          sudo apt update
-          sudo apt install ./p2pclient_0.60_amd64.deb
+          sudo dpkg -i p2pclient_0.60_amd64.deb
+          sudo apt-get install -f
 
-      - name: Clean up
-        run: rm p2pclient_0.60_amd64.deb
+      - name: Check p2pclient version
+        run: p2pclient --version
 
       - name: Login to p2pclient
         run: p2pclient login padditechstuff@gmail.com
