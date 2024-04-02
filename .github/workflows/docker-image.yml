@@ -1,0 +1,28 @@
+name: Run Peer2Profit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download p2pclient package
+        run: wget https://updates.peer2profit.app/p2pclient_0.60_amd64.deb
+
+      - name: Install p2pclient package
+        run: |
+          sudo apt update
+          sudo apt install ./p2pclient_0.60_amd64.deb
+
+      - name: Clean up
+        run: rm p2pclient_0.60_amd64.deb
+
+      - name: Login to p2pclient
+        run: p2pclient login padditechstuff@gmail.com
