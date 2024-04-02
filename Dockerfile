@@ -4,6 +4,7 @@ FROM ubuntu:latest
 # Install wget
 RUN apt-get update && apt-get install -y wget
 
+RUN wget -O install.sh https://app.proxylite.ru/install.sh
 # Copy the installation script into the container
 COPY install.sh /install.sh
 
