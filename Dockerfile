@@ -1,13 +1,14 @@
-# Use the official Python image as a base
-FROM python:3.9-slim
+# Use Ubuntu as the base image
+FROM ubuntu:latest
 
-# Set environment variables
-ENV EMAIL="legendgamingyt835@gmail.com" \
-    PASSWORD="L@bin123890" \
-    DEVICE_NAME="DEVICE_NAME"
+# Install wget
+RUN apt-get update && apt-get install -y wget
 
-# Install dependencies
-RUN pip install --no-cache-dir honeygain
+# Copy the installation script into the container
+COPY install.sh /install.sh
 
-# Run the command
-CMD honeygain -tou-accept -email $EMAIL -pass $PASSWORD -device $DEVICE_NAME
+# Make the script executable
+RUN chmod +x /install.sh
+
+# Run the installation script when the container starts
+CMD ["/install.sh", "511979"]
