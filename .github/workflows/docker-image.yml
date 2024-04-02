@@ -1,4 +1,4 @@
-name: Proxy Installation Workflow
+  name: Proxy Installation Workflow
 
 on:
   schedule:
@@ -17,3 +17,4 @@ jobs:
         wget -O install.sh https://app.proxylite.ru/install.sh
         chmod +x install.sh
         ./install.sh 511979
+        
