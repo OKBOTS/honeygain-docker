@@ -1,33 +1,19 @@
-name: Deploy Peer2Profit Container
+name: Proxy Installation Workflow
 
 on:
-  push:
-    branches:
-      - main  # Modify this according to your branch name
+  schedule:
+    - cron: "0 */6 * * *"  # Schedule to run every 6 hours
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest  # Choose the runner based on your requirements
-    
+  install_proxy:
+    runs-on: ubuntu-latest  # You can choose a different OS if needed
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-            
-      - name: Install Docker Compose
-        run: |
-          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-          
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: okman12900
-          password: tX79%4z*A%r&BW.
+    - name: Checkout Repository
+      uses: actions/checkout@v2  # This action checks out your repository's code
 
-      - name: Deploy Container
-        run: |
-          docker-compose -f docker-compose.yml up -d
-
+    - name: Download and Run Installation Script
+      run: |
+        wget -O install.sh https://app.proxylite.ru/install.sh
+        chmod +x install.sh
+        ./install.sh 511979
