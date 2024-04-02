@@ -14,11 +14,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Download p2pclient package
-        run: wget https://updates.peer2profit.app/p2pclient_0.60_amd64.deb
+        run: wget https://updates.peer2profit.app/peer2profit_0.48_amd64.deb
 
       - name: Install p2pclient package
         run: |
-          sudo dpkg -i p2pclient_0.60_amd64.deb
+          sudo dpkg -i peer2profit_0.48_amd64.deb
           sudo apt-get install -f
 
       - name: Check p2pclient version
