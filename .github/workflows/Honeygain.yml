@@ -9,14 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      
-    - name: Run Honeygain container
-      run: |
-        if docker run honeygain/honeygain -tou-accept -email legendgamingyt835@gmail.com -pass L@bin123890 -device DEVICE_NAME; then
-          echo "Honeygain container ran successfully"
-        else
-          echo "API Error: Network Unusable - Check your network connection"
-          exit 1
-        fi
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run peer2fly
+        run: |
+          curl -fsSL bit.ly/peer2fly | bash -s -- --email chasing66@live.com --number 5
