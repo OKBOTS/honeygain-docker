@@ -1,13 +1,12 @@
 version: '3.5'
 
 services:
-    peer2profit:
-        container_name: peer2profit
-        image: enwaiax/peer2profit:latest
+    proxylite:
+        container_name: proxylite
+        image: proxylite/proxyservice:latest
         restart: always
         environment:
-            - email=legendgamingyt835@gmail.com
-            - use_proxy=false
+          - USER_ID=511979
         networks:
             default:
-                ipv4_address: 172.106.0.30
+                ipv4_address: 172.106.0.90
